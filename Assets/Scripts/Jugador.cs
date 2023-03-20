@@ -5,12 +5,12 @@ using UnityEngine;
 public class Jugador : MonoBehaviour
 {
     // Start is called before the first frame update
-    private CharacterController _jugador;
-    private float _velocidad;
-    private Vector3 _moveAxis;
+    private CharacterController _jugador;//Mover
+    private float _velocidad;//Mover
+    private Vector3 _moveAxis;//Mover
 
-    private Vector3 _camForward, _camRight, _direccion;
-    private Camera _camera;
+    private Vector3 _camForward, _camRight, _direccion; //Camara
+    private Camera _camera; //Camara
 
     [SerializeField] private float _gravity;
     [SerializeField] private float _fallVelocity;
@@ -22,9 +22,9 @@ public class Jugador : MonoBehaviour
 
     private void Awake()
     {
-        _jugador = GetComponent<CharacterController>();
-        _velocidad = 20f;
-        _camera = Camera.main;
+        _jugador = GetComponent<CharacterController>();//Mover
+        _velocidad = 20f;//Mover
+        _camera = Camera.main; //Camara
         _gravity = 60f; //9.8 
         _jumpForce = 10f;       
     }
@@ -33,28 +33,28 @@ public class Jugador : MonoBehaviour
     void Update()
     {
          //Gun();
-        _moveAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _moveAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //Mover
        
 
-        if (_moveAxis.magnitude > 1)
-            _moveAxis = _moveAxis.normalized * _velocidad;
-        else
-            _moveAxis = _moveAxis * _velocidad;
-        
+        if (_moveAxis.magnitude > 1)//Mover
+            _moveAxis = _moveAxis.normalized * _velocidad;//Mover
+        else//Mover
+            _moveAxis = _moveAxis * _velocidad;//Mover
+
 
         cameraDirection();
 
-        _direccion = _moveAxis.x * _camRight + _moveAxis.z * _camForward;
+        _direccion = _moveAxis.x * _camRight + _moveAxis.z * _camForward; //Camara
 
         transform.LookAt(transform.position + _direccion);
         
         Gravedad();
         Jump();
-        _jugador.Move(_direccion * Time.deltaTime);
+        _jugador.Move(_direccion * Time.deltaTime);//Mover
 
     }
 
-    private void cameraDirection()
+    private void cameraDirection() //Camara
     {
         _camForward = _camera.transform.forward.normalized;
         _camRight = _camera.transform.right.normalized;
