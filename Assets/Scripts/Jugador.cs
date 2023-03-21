@@ -17,8 +17,8 @@ public class Jugador : MonoBehaviour
     [SerializeField] private float _jumpForce;
 
     ////bala
-    //public Transform _setPoint;
-    //public GameObject _bala;
+    public Transform _setPoint;
+    public GameObject _bala;
 
     private void Awake()
     {
