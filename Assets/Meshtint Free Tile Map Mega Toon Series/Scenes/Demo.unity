@@ -27676,7 +27676,7 @@ MonoBehaviour:
   _fallVelocity: 0
   _jumpForce: 0
   _setPoint: {fileID: 1516562018}
-  _bala: {fileID: 0}
+  _bala: {fileID: 126980, guid: 83712cf2314fbc54e840a2ce09d08a0e, type: 3}
 --- !u!143 &2002740388
 CharacterController:
   m_ObjectHideFlags: 0
