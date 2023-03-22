@@ -86,7 +86,7 @@ public class Jugador : MonoBehaviour
     }
     private void Gun()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(_bala, _setPoint.transform.position, _setPoint.transform.rotation);
 
