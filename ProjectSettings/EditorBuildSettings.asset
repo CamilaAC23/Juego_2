@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Escenas/Menu.unity
+    guid: b04013cb44e1de44e8b1a231c273fedb
+  - enabled: 1
+    path: Assets/Escenas/Personaje.unity
+    guid: 8fe4ad7e71876834fb1a99882ff4a532
+  - enabled: 1
+    path: Assets/Meshtint Free Tile Map Mega Toon Series/Scenes/Demo.unity
+    guid: eb02e990e0f47ab4d8ddcf2d4948628e
   m_configObjects: {}
