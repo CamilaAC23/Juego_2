@@ -31,6 +31,10 @@ public class Button : Interactable
             material.color = inactiveColor;
         }
     }
+    public bool ShouldChangeScene()
+    {
+        return activated; // Cambia esto según tu lógica específica
+    }
 }
 
 

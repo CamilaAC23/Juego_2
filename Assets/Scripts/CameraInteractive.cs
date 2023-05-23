@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -14,6 +15,9 @@ public class CameraInteractive : MonoBehaviour
     public float rayDistance = 2.0f;
     string filtro = "Interactable";
     private int objectsDestroyed = 0; //CONTADOR
+    
+    public string nextScene; // Nombre de la escena a la que deseas cambiar
+
     void Start()
     {
       //  camera = transform.Find("Camera");
@@ -36,18 +40,9 @@ public class CameraInteractive : MonoBehaviour
                 Debug.Log("Capa del Raycast: " + LayerMask.GetMask(filtro));
                 Debug.Log("Objeto colisionado: " + hit.transform.name);
 
-                // Realiza la acción de Interact en el objeto colisionado
-                //hit.transform.GetComponent<Interactable>().Interact();
-
-                //Interactable interactable = hit.transform.GetComponent<Interactable>();
-                //if (interactable != null)
-                //{
-                //   interactable.Interact();
-                //    objectsDestroyed++; // Incrementa el contador de objetos eliminados
-                //    Debug.Log("Objetos eliminados: " + objectsDestroyed);
-                //}
-
                 ObjectDestroy objectDestroy = hit.transform.GetComponent<ObjectDestroy>();
+                Button button = hit.transform.GetComponent<Button>();
+
                 if (objectDestroy != null)
                 {
                     objectDestroy.Interact(); // Llama al método Interact del ObjectDestroy
@@ -56,10 +51,19 @@ public class CameraInteractive : MonoBehaviour
                     displayText.text = "Score: " + objectsDestroyed + "/12";
 
                 }
+                else if (button != null)
+                {
+                    button.Interact(); // Llama al método Interact del Button
+
+                    // Si el objeto interactivo es el que deseas utilizar para cambiar de escena
+                    if (button.ShouldChangeScene())
+                    {
+                        // Cambiar a la siguiente escena
+                        SceneManager.LoadScene(nextScene);
+                    }
+                }
                 else
                 {
-                    // Aquí puedes agregar cualquier acción adicional para los objetos que no se eliminan
-                    // Por ejemplo, puedes llamar a un método específico en el objeto colisionado
                     hit.transform.GetComponent<Interactable>().Interact();
                 }
 

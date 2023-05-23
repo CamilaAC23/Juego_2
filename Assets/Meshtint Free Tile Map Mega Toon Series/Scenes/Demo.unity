@@ -30719,6 +30719,7 @@ MonoBehaviour:
   displayText: {fileID: 846335697}
   _object: {fileID: 2002740386}
   rayDistance: 2
+  nextScene: Demo2
 --- !u!1001 &2004307935
 PrefabInstance:
   m_ObjectHideFlags: 0
